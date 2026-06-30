@@ -2,11 +2,16 @@
 // Punto de entrada de la aplicacion SintraRd.Api.
 // Configura los servicios y el pipeline HTTP de ASP.NET Core.
 
+using SintraRd.Api.Infrastructure;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // --- Servicios ---
 // Habilita el enrutamiento por controladores (arquitectura MVC sin vistas)
 builder.Services.AddControllers();
+
+// Registra los servicios propios de SINTRA-RD (repositorios, motor, etc.)
+builder.Services.AgregarServiciosSintraRd();
 
 // OpenAPI (documentacion interactiva de la API, disponible solo en desarrollo)
 builder.Services.AddOpenApi();
