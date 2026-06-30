@@ -9,9 +9,25 @@ lo que viene a continuacion. Se actualiza al completar cada hito, no antes ni de
 
 ## Estado actual
 
-**Bloque completado:** Bloque 1 — Cimientos
+**Bloque completado:** Bloque 2 — Nucleo del demo tecnico
 
-**Ultimo commit:** Paso 3 — Program.cs limpio y CONTEXT.md creado
+**Ultimo commit:** Demostracion central validada en vivo
+
+---
+
+## Que se construyo (Bloque 2)
+
+- 8 entidades del dominio fiscal: 3 enums (TipoImpuesto, TipoTasa, TipoOperacion)
+  y 5 clases (Tasa, Exencion, ReglaTributaria, DetalleLiquidacion, Liquidacion)
+- Regla tributaria ITBIS en JSON (`itbis-2016-v1.json`): 4 tasas y 14 exenciones
+  segun Arts. 343-344 Ley 11-92, vigente desde 2016-01-01
+- IReglaTributariaRepository + ReglaTributariaRepository: lee y filtra JSONs por vigencia
+- IMotorLiquidacion + MotorLiquidacion: calcula ITBIS ejecutando reglas de M16
+- SolicitudLiquidacionDto: contrato de entrada del motor
+- POST api/v1/liquidaciones: endpoint HTTP versionado que expone el motor
+- JsonStringEnumConverter configurado: la API acepta strings en lugar de enteros para enums
+- Demostracion central validada: cambiar 0.18 a 0.20 en el JSON cambia el resultado
+  de 180.00 a 200.00 sin tocar una linea del motor ni reiniciar la API
 
 ---
 
@@ -44,26 +60,20 @@ lo que viene a continuacion. Se actualiza al completar cada hito, no antes ni de
 
 ---
 
-## Que viene (Bloque 2)
+## Que viene (Bloque 3)
 
-Construccion del nucleo del demo tecnico:
-
-1. Entidades del dominio fiscal (M3 + M16): `ReglaTributaria`, `Liquidacion`,
-   `BaseImponible`, `Tasa`, `Exencion`, con `decimal` para todos los montos.
-2. Motor de Reglas (M16): repositorio de reglas ITBIS en JSON, versionadas
-   por fecha de vigencia.
-3. Motor de Liquidacion (M3): servicio que carga las reglas vigentes y calcula
-   el ITBIS.
-4. Endpoint de la API que expone el calculo.
-5. Demostracion: cambiar una regla en configuracion y ver el resultado cambiar
-   sin tocar codigo del motor.
+Por definir con manin. Opciones naturales:
+- Capa de seguridad (JWT, rate limiting, cabeceras HTTP)
+- Pruebas unitarias del Motor de Liquidacion
+- Interfaz web simple para ingresar operaciones y ver el calculo en tiempo real
 
 ---
 
 ## Problemas conocidos / pendientes
 
-- Ninguno en este bloque.
+- JsonStringEnumConverter resuelto: ASP.NET Core no deserializa enums como strings
+  por defecto; se configuro en Program.cs.
 
 ---
 
-*Ultima actualizacion: Bloque 1, Paso 3 completado.*
+*Ultima actualizacion: Bloque 2 completado. Demostracion central validada en vivo.*
