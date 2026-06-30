@@ -1,0 +1,102 @@
+{
+  "id": "itbis-2016-v1",
+  "tipoImpuesto": "ITBIS",
+  "fechaVigenciaDesde": "2016-01-01",
+  "fechaVigenciaHasta": null,
+  "version": "ITBIS-2016-v1",
+  "baseLegal": "Art. 23 Ley 253-12; Titulo III Ley 11-92 Arts. 335-360; Decreto 293-11",
+  "tasas": [
+    {
+      "tipo": "General",
+      "valor": 0.18,
+      "descripcion": "Mayoria de bienes manufacturados y servicios gravados"
+    },
+    {
+      "tipo": "Reducida",
+      "valor": 0.16,
+      "descripcion": "Yogurt, mantequilla, cafe, cacao, chocolate, aceites, azucar"
+    },
+    {
+      "tipo": "TasaCero",
+      "valor": 0.00,
+      "descripcion": "Exportaciones de bienes. Conserva derecho a credito fiscal"
+    },
+    {
+      "tipo": "Exento",
+      "valor": 0.00,
+      "descripcion": "Operacion exenta. No genera obligacion de ITBIS ni credito fiscal"
+    }
+  ],
+  "exenciones": [
+    {
+      "codigo": "ALIM-BASICO",
+      "descripcion": "Alimentos basicos: carnes frescas, pescado, leche, miel, huevos, legumbres, hortalizas, tuberculos, frutas sin procesar, cereales, harinas, pan, pastas",
+      "baseLegal": "Art. 343 Ley 11-92"
+    },
+    {
+      "codigo": "AGROPECUARIO",
+      "descripcion": "Productos agropecuarios: semillas, abonos, insecticidas, insumos pecuarios",
+      "baseLegal": "Art. 343 Ley 11-92"
+    },
+    {
+      "codigo": "PRIMERA-NECESIDAD",
+      "descripcion": "Bienes de primera necesidad: combustibles, medicamentos, sillas de ruedas",
+      "baseLegal": "Art. 343 Ley 11-92"
+    },
+    {
+      "codigo": "EDUCACION-MAT",
+      "descripcion": "Material educativo: libros, revistas, material preuniversitario",
+      "baseLegal": "Art. 343 Ley 11-92"
+    },
+    {
+      "codigo": "MATERIA-PRIMA",
+      "descripcion": "Materias primas: cacao en grano, cafe sin tostar",
+      "baseLegal": "Art. 343 Ley 11-92"
+    },
+    {
+      "codigo": "SERV-EDUCACION",
+      "descripcion": "Servicios de educacion en todos los niveles",
+      "baseLegal": "Art. 344 Ley 11-92"
+    },
+    {
+      "codigo": "SERV-SALUD",
+      "descripcion": "Servicios de salud, odontologicos y gimnasios (salud preventiva)",
+      "baseLegal": "Art. 344 Ley 11-92"
+    },
+    {
+      "codigo": "SERV-FINANCIERO",
+      "descripcion": "Servicios financieros y de seguros",
+      "baseLegal": "Art. 344 Ley 11-92"
+    },
+    {
+      "codigo": "SERV-TRANSPORTE",
+      "descripcion": "Transporte terrestre de pasajeros y carga",
+      "baseLegal": "Art. 344 Ley 11-92"
+    },
+    {
+      "codigo": "SERV-PUBLICO",
+      "descripcion": "Servicios publicos basicos: energia electrica, agua potable, recogida de basura",
+      "baseLegal": "Art. 344 Ley 11-92"
+    },
+    {
+      "codigo": "SERV-ALQUILER-VIV",
+      "descripcion": "Alquiler de viviendas familiares",
+      "baseLegal": "Art. 344 Ley 11-92"
+    },
+    {
+      "codigo": "SERV-FUNERARIO",
+      "descripcion": "Servicios funerarios",
+      "baseLegal": "Art. 344 Ley 11-92"
+    },
+    {
+      "codigo": "SERV-BELLEZA",
+      "descripcion": "Salones de belleza y peluquerias",
+      "baseLegal": "Art. 344 Ley 11-92"
+    },
+    {
+      "codigo": "SERV-ESPECTACULO",
+      "descripcion": "Espectaculos artisticos",
+      "baseLegal": "Art. 344 Ley 11-92"
+    }
+  ]
+}
