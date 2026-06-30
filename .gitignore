@@ -1,0 +1,77 @@
+# ============================================================
+# SINTRA-RD — .gitignore
+# DEVGEP+ | Guillermo Estefan Puello
+# ============================================================
+
+# ------------------------------------------------------------
+# Artefactos de compilacion (.NET)
+# ------------------------------------------------------------
+bin/
+obj/
+*.nupkg
+*.snupkg
+
+# ------------------------------------------------------------
+# Visual Studio
+# ------------------------------------------------------------
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.userprefs
+
+# ------------------------------------------------------------
+# JetBrains Rider
+# ------------------------------------------------------------
+.idea/
+*.sln.iml
+
+# ------------------------------------------------------------
+# Configuracion local con posibles secretos
+# Regla: appsettings.json y appsettings.Development.json SI
+# se versionan (plantilla y defaults sin secretos reales).
+# Los secretos van en appsettings.Local.json o variables de entorno.
+# ------------------------------------------------------------
+appsettings.Local.json
+appsettings.Production.json
+appsettings.Staging.json
+*.env
+.env
+secrets.json
+
+# ------------------------------------------------------------
+# Claves, certificados y firmas digitales
+# ------------------------------------------------------------
+*.pfx
+*.key
+*.pem
+*.cer
+*.p12
+*.crt
+
+# ------------------------------------------------------------
+# Logs y temporales
+# ------------------------------------------------------------
+logs/
+*.log
+*.tmp
+*.temp
+
+# ------------------------------------------------------------
+# NuGet (paquetes locales cacheados)
+# ------------------------------------------------------------
+packages/
+.nuget/
+
+# ------------------------------------------------------------
+# Claude Code (configuracion local del agente, no es codigo del proyecto)
+# ------------------------------------------------------------
+.claude/
+
+# ------------------------------------------------------------
+# Sistema operativo
+# ------------------------------------------------------------
+.DS_Store
+Thumbs.db
+desktop.ini
