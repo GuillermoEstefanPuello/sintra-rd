@@ -2,13 +2,17 @@
 // Punto de entrada de la aplicacion SintraRd.Api.
 // Configura los servicios y el pipeline HTTP de ASP.NET Core.
 
+using System.Text.Json.Serialization;
 using SintraRd.Api.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // --- Servicios ---
 // Habilita el enrutamiento por controladores (arquitectura MVC sin vistas)
-builder.Services.AddControllers();
+// JsonStringEnumConverter permite que la API acepte enums como strings ("ITBIS", "General")
+builder.Services.AddControllers()
+    .AddJsonOptions(opciones =>
+        opciones.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()));
 
 // Registra los servicios propios de SINTRA-RD (repositorios, motor, etc.)
 builder.Services.AgregarServiciosSintraRd();
