@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SintraRd.Api", "SintraRd.Api\SintraRd.Api.csproj", "{C0275BB2-0F4C-4E3A-8882-D62698D0A00D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SintraRd.Tests", "SintraRd.Tests\SintraRd.Tests.csproj", "{E4058D95-7B14-4F2C-A268-4641F446F6E6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,18 @@ Global
 		{C0275BB2-0F4C-4E3A-8882-D62698D0A00D}.Release|x64.Build.0 = Release|Any CPU
 		{C0275BB2-0F4C-4E3A-8882-D62698D0A00D}.Release|x86.ActiveCfg = Release|Any CPU
 		{C0275BB2-0F4C-4E3A-8882-D62698D0A00D}.Release|x86.Build.0 = Release|Any CPU
+		{E4058D95-7B14-4F2C-A268-4641F446F6E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4058D95-7B14-4F2C-A268-4641F446F6E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4058D95-7B14-4F2C-A268-4641F446F6E6}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{E4058D95-7B14-4F2C-A268-4641F446F6E6}.Debug|x64.Build.0 = Debug|Any CPU
+		{E4058D95-7B14-4F2C-A268-4641F446F6E6}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E4058D95-7B14-4F2C-A268-4641F446F6E6}.Debug|x86.Build.0 = Debug|Any CPU
+		{E4058D95-7B14-4F2C-A268-4641F446F6E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4058D95-7B14-4F2C-A268-4641F446F6E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4058D95-7B14-4F2C-A268-4641F446F6E6}.Release|x64.ActiveCfg = Release|Any CPU
+		{E4058D95-7B14-4F2C-A268-4641F446F6E6}.Release|x64.Build.0 = Release|Any CPU
+		{E4058D95-7B14-4F2C-A268-4641F446F6E6}.Release|x86.ActiveCfg = Release|Any CPU
+		{E4058D95-7B14-4F2C-A268-4641F446F6E6}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

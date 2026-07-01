@@ -9,9 +9,9 @@ lo que viene a continuacion. Se actualiza al completar cada hito, no antes ni de
 
 ## Estado actual
 
-**Bloque completado:** Bloque 2 — Nucleo del demo tecnico
+**Bloque completado:** Bloque 3 — Pruebas unitarias del Motor de Liquidacion
 
-**Ultimo commit:** Demostracion central validada en vivo
+**Ultimo commit:** 8 pruebas unitarias del Motor de Liquidacion, todas correctas
 
 ---
 
@@ -60,11 +60,29 @@ lo que viene a continuacion. Se actualiza al completar cada hito, no antes ni de
 
 ---
 
-## Que viene (Bloque 3)
+## Que se construyo (Bloque 3)
+
+- Proyecto `SintraRd.Tests` con xUnit (net9.0), agregado a la solucion con
+  referencia a `SintraRd.Api`
+- `SintraRd.Tests/Fakes/ReglaTributariaRepositoryFake.cs`: implementacion falsa
+  de `IReglaTributariaRepository` que recibe `ReglaTributaria?` en el constructor;
+  permite controlar el repositorio en pruebas sin acceso al sistema de archivos
+- `SintraRd.Tests/MotorLiquidacion/MotorLiquidacionTests.cs`: 7 pruebas unitarias
+  del Motor de Liquidacion (M3), todas verificadas en local fuera de Claude Code:
+  - General 18% sin credito: 1000 -> MontoImpuesto 180, TotalAPagar 180
+  - General 18% con credito 50: MontoImpuesto 180, TotalAPagar 130
+  - Reducida 16%: 500 -> MontoImpuesto 80
+  - Exento: MontoImpuesto 0, TotalAPagar 0, TipoTasaAplicada == Exento
+  - TasaCero: MontoImpuesto 0, TipoTasaAplicada == TasaCero (distinto de Exento)
+  - Sin regla vigente (fake con null): lanza InvalidOperationException con "vigente"
+  - Credito 200 > impuesto 180: TotalAPagar == -20 (saldo a favor)
+
+---
+
+## Que viene (Bloque 4)
 
 Por definir con manin. Opciones naturales:
 - Capa de seguridad (JWT, rate limiting, cabeceras HTTP)
-- Pruebas unitarias del Motor de Liquidacion
 - Interfaz web simple para ingresar operaciones y ver el calculo en tiempo real
 
 ---
@@ -76,4 +94,4 @@ Por definir con manin. Opciones naturales:
 
 ---
 
-*Ultima actualizacion: Bloque 2 completado. Demostracion central validada en vivo.*
+*Ultima actualizacion: Bloque 3 completado. 8 de 8 pruebas unitarias correctas, verificadas en local.*
