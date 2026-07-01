@@ -4,6 +4,7 @@
 // [ApiController] maneja la validacion del modelo automaticamente (400 si el body es invalido).
 
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.RateLimiting;
 using SintraRd.Api.Models.Dtos;
 using SintraRd.Api.Services.Interfaces;
 
@@ -22,6 +23,7 @@ public class LiquidacionController : ControllerBase
 
     // POST api/v1/liquidaciones
     // Recibe una solicitud de liquidacion y retorna el calculo completo del impuesto.
+    [EnableRateLimiting("liquidaciones")]
     [HttpPost]
     public async Task<IActionResult> LiquidarAsync([FromBody] SolicitudLiquidacionDto solicitud)
     {

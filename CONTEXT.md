@@ -79,11 +79,48 @@ lo que viene a continuacion. Se actualiza al completar cada hito, no antes ni de
 
 ---
 
-## Que viene (Bloque 4)
+## Roadmap del proyecto
 
-Por definir con manin. Opciones naturales:
-- Capa de seguridad (JWT, rate limiting, cabeceras HTTP)
-- Interfaz web simple para ingresar operaciones y ver el calculo en tiempo real
+Definido con manin el 2026-07-01 a partir del inventario de los 17 modulos de fase3-arquitectura.md.
+
+| Bloque | Modulo / Tema | Notas |
+|---|---|---|
+| Bloque 4 | Seguridad | JWT, rate limiting, CORS, cabeceras HTTP |
+| Bloque 5 | M11 — Portal del Contribuyente | Frontend/UI |
+| Bloque 6 | M7b — Cuenta Corriente Tributaria | |
+| Bloque 7 | M4 — Declaraciones Electronicas | |
+| Bloque 8 | M17 — Notificaciones | |
+| Bloque 9+ | Evaluar caso por caso | M1, M2, M6, M7, M9, M14, M15 |
+
+**Fuera de alcance por ahora:** M5 (e-CF / Facturacion Electronica), M8 (Fiscalizacion con IA),
+M13 (Interoperabilidad X-Road).
+Motivo: complejidad Muy Alta desproporcionada para un demo de portafolio.
+Se reevaluan si el proyecto avanza a produccion real.
+
+---
+
+## Que se construyo (Bloque 4 — en curso)
+
+### Hito 4.1 — Capa 2: proteccion de la API (completado)
+
+- `Middleware/CabecerasSeguridad.cs`: 7 cabeceras HTTP en todas las respuestas
+  (X-Content-Type-Options, X-Frame-Options, X-XSS-Protection, Referrer-Policy,
+  Content-Security-Policy, Permissions-Policy, Cache-Control)
+- `appsettings.json`: origenes CORS en configuracion (localhost:5173 para M11)
+- `ServiceCollectionExtensions.cs`: metodos AgregarCors y AgregarRateLimiting
+  - GlobalLimiter: 100 solicitudes por minuto por IP (todas las rutas)
+  - Politica "liquidaciones": 20 solicitudes por minuto por IP (POST /liquidaciones)
+- `Program.cs`: pipeline actualizado en orden correcto —
+  HSTS -> HTTPS -> cabeceras -> CORS -> rate limiting -> autorizacion -> controladores
+- `LiquidacionController.cs`: [EnableRateLimiting("liquidaciones")] sobre el POST
+- Verificado: build limpio (0 errores, 0 advertencias) + 7/7 tests sin regresiones
+
+### Pendiente (proxima sesion)
+
+- Hito 4.2: FluentValidation sobre SolicitudLiquidacionDto
+- Hito 4.3: JWT en cookies HttpOnly + endpoint /auth/login
+- Hito 4.4: Lista negra de tokens (logout, IMemoryCache)
+- Hito 4.5: Logging estructurado de eventos de seguridad
 
 ---
 
@@ -94,4 +131,4 @@ Por definir con manin. Opciones naturales:
 
 ---
 
-*Ultima actualizacion: Bloque 3 completado. 8 de 8 pruebas unitarias correctas, verificadas en local.*
+*Ultima actualizacion: Hito 4.1 completado. Build limpio + 7/7 tests sin regresiones. Hito 4.2 pendiente.*
